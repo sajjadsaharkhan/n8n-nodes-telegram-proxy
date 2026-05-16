@@ -1,8 +1,9 @@
-# Source files (we only publish dist/)
+# Source files (we publish dist/)
 credentials/
 nodes/
 index.ts
 tsconfig.json
+tsconfig.json.json
 
 # Development files
 .git/
@@ -10,10 +11,6 @@ tsconfig.json
 .gitignore
 .npmrc
 .claude/
-
-# CI/CD
-.gitlab-ci.yml
-.travis.yml
 
 # IDE
 .idea/
@@ -29,3 +26,6 @@ Thumbs.db
 tests/
 *.test.ts
 *.spec.ts
+
+# Lock file (optional - comment out if you want npm to use it)
+# package-lock.json
