@@ -1,25 +1,19 @@
 # Source files (we only publish dist/)
-src/
+credentials/
+nodes/
+index.ts
 tsconfig.json
-
-# Build scripts
-build.sh
-prepare-source.sh
-build-community.sh
 
 # Development files
 .git/
 .github/
 .gitignore
 .npmrc
-
-# Documentation (except README)
-LICENSE.md
+.claude/
 
 # CI/CD
 .gitlab-ci.yml
 .travis.yml
-GitHubActions/
 
 # IDE
 .idea/
@@ -30,3 +24,8 @@ GitHubActions/
 # OS
 .DS_Store
 Thumbs.db
+
+# Tests
+tests/
+*.test.ts
+*.spec.ts

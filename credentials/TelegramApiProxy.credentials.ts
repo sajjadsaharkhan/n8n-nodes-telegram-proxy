@@ -1,11 +1,15 @@
-import type { ICredentialTestRequest, ICredentialType, INodeProperties } from 'n8n-workflow';
+import type {
+	ICredentialTestRequest,
+	ICredentialType,
+	INodeProperties,
+} from 'n8n-workflow';
 
 export class TelegramApiProxy implements ICredentialType {
 	name = 'telegramApiProxy';
 
 	displayName = 'Telegram API (with Proxy)';
 
-	documentationUrl = 'telegram';
+	documentationUrl = 'https://core.telegram.org/bots/api';
 
 	properties: INodeProperties[] = [
 		{
@@ -15,7 +19,7 @@ export class TelegramApiProxy implements ICredentialType {
 			typeOptions: { password: true },
 			default: '',
 			description:
-				'Chat with the <a href="https://telegram.me/botfather">bot father</a> to obtain the access token',
+				'Chat with the <a href="https://telegram.me/botfather">BotFather</a> to obtain the access token',
 		},
 		{
 			displayName: 'Base URL',
@@ -26,9 +30,12 @@ export class TelegramApiProxy implements ICredentialType {
 		},
 		{
 			displayName: 'HTTP Proxy',
-			name: 'proxy',
-			type: 'fixedCollection',
+			name: 'httpProxy',
 			placeholder: 'Add Proxy',
+			type: 'fixedCollection',
+			typeOptions: {
+				multipleValues: false,
+			},
 			default: {},
 			options: [
 				{
@@ -46,12 +53,12 @@ export class TelegramApiProxy implements ICredentialType {
 							displayName: 'Port',
 							name: 'port',
 							type: 'number',
+							default: 3128,
+							description: 'Proxy server port',
 							typeOptions: {
 								minValue: 1,
 								maxValue: 65535,
 							},
-							default: 3128,
-							description: 'Proxy server port',
 						},
 						{
 							displayName: 'Protocol',
@@ -70,9 +77,13 @@ export class TelegramApiProxy implements ICredentialType {
 									name: 'SOCKS',
 									value: 'socks',
 								},
+								{
+									name: 'SOCKS5',
+									value: 'socks5',
+								},
 							],
 							default: 'http',
-							description: 'Proxy protocol',
+							description: 'Proxy protocol type',
 						},
 						{
 							displayName: 'Authentication',

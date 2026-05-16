@@ -13,8 +13,8 @@
   "license": "MIT",
   "homepage": "https://github.com/sajjadsaharkhan/n8n-nodes-telegram-proxy#readme",
   "author": {
-    "name": "Your Name",
-    "email": "your.email@example.com"
+    "name": "Sajjad Saharkhan",
+    "email": "sajjad.saharkhan@gmail.com"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
   "bugs": {
     "url": "https://github.com/sajjadsaharkhan/n8n-nodes-telegram-proxy/issues"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "n8n": {
     "n8nVersionsCompat": ">=1.0.0",
     "credentials": [
@@ -65,6 +66,7 @@
   },
   "devDependencies": {
     "@types/mime-types": "^2.1.4",
+    "@types/node": "^20.10.0",
     "n8n-workflow": "*",
     "typescript": "^5.3.3"
   },
@@ -78,8 +80,6 @@
     "prepublishOnly": "npm run build"
   },
   "files": [
-    "dist",
-    "credentials",
-    "nodes"
+    "dist"
   ]
 }

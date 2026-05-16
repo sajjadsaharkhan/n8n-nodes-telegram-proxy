@@ -2,7 +2,7 @@
 
 > Telegram nodes with HTTP proxy support for n8n
 
-[![npm version](https://badge.fury.io/js/%40yourusername%2Fn8n-nodes-telegram-proxy.svg)](https://www.npmjs.com/package/@yourusername/n8n-nodes-telegram-proxy)
+[![npm version](https://badge.fury.io/js/%40sajjadsaharkhan%2Fn8n-nodes-telegram-proxy.svg)](https://www.npmjs.com/package/@sajjadsaharkhan/n8n-nodes-telegram-proxy)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 An enhanced version of the official [n8n Telegram node](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Telegram) with HTTP/HTTPS/SOCKS proxy support.
@@ -26,21 +26,27 @@ The official n8n Telegram node doesn't support proxy configuration. This fork ad
 In your n8n directory:
 
 ```bash
-npm install @yourusername/n8n-nodes-telegram-proxy
+npm install @sajjadsaharkhan/n8n-nodes-telegram-proxy
 ```
 
 Then restart n8n.
 
+### Option 2: Install globally (for Docker/Kubernetes)
+
+```bash
+npm install -g @sajjadsaharkhan/n8n-nodes-telegram-proxy
+```
+
 ### Option 2: Install from Source
 
 ```bash
-git clone https://github.com/yourusername/n8n-nodes-telegram-proxy.git
+git clone https://github.com/sajjadsaharkhan/n8n-nodes-telegram-proxy.git
 cd n8n-nodes-telegram-proxy
 npm install
 npm run build
 npm link
 # In your n8n directory:
-npm link @yourusername/n8n-nodes-telegram-proxy
+npm link @sajjadsaharkhan/n8n-nodes-telegram-proxy
 ```
 
 ## Usage
@@ -106,7 +112,7 @@ To use this package in a Docker/Kubernetes environment, build a custom n8n image
 FROM n8nio/n8n:latest
 
 USER root
-RUN npm install -g @yourusername/n8n-nodes-telegram-proxy
+RUN npm install -g @sajjadsaharkhan/n8n-nodes-telegram-proxy
 USER node
 ```
 
@@ -116,7 +122,7 @@ Or use the multi-stage build approach for smaller images. See [KUBERNETES.md](KU
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/n8n-nodes-telegram-proxy.git
+git clone https://github.com/sajjadsaharkhan/n8n-nodes-telegram-proxy.git
 cd n8n-nodes-telegram-proxy
 
 # Install dependencies
@@ -127,6 +133,28 @@ npm run build
 
 # Watch for changes
 npm run dev
+```
+
+## Publishing
+
+### Automated Publishing via GitHub Actions
+
+This repository uses GitHub Actions to automatically build and publish to npm when you push a version tag:
+
+```bash
+# Tag and push (triggers the workflow)
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+### Manual Publishing
+
+1. Set your npm token in GitHub Secrets as `NPM_TOKEN`
+2. Or publish locally:
+
+```bash
+npm run build
+npm publish --access public
 ```
 
 ## Contributing
