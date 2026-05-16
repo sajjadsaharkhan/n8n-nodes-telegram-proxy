@@ -76,8 +76,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "prepublishOnly": "npm run build"
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "files": [
     "dist"
