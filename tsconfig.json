@@ -12,8 +12,7 @@
 		"noImplicitAny": false,
 		"strictNullChecks": false,
 		"esModuleInterop": true,
-		"resolveJsonModule": true,
-		"ignoreDeprecations": "6.0"
+		"resolveJsonModule": true
 	},
 	"include": [
 		"credentials/**/*.ts",
