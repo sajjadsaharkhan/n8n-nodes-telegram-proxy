@@ -11,17 +11,17 @@
     "socks-proxy"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/yourusername/n8n-nodes-telegram-proxy#readme",
+  "homepage": "https://github.com/sajjadsaharkhan/n8n-nodes-telegram-proxy#readme",
   "author": {
     "name": "Your Name",
     "email": "your.email@example.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/n8n-nodes-telegram-proxy.git"
+    "url": "git+https://github.com/sajjadsaharkhan/n8n-nodes-telegram-proxy.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/n8n-nodes-telegram-proxy/issues"
+    "url": "https://github.com/sajjadsaharkhan/n8n-nodes-telegram-proxy/issues"
   },
   "main": "index.js",
   "n8n": {
