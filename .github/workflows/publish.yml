@@ -20,17 +20,25 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install runtime dependencies only
-        run: npm install --production --ignore-scripts
+      - name: Install mime-types (only runtime dependency)
+        run: npm install mime-types@^2.1.35 --no-save --ignore-scripts
 
-      - name: Install TypeScript
-        run: npm install -D typescript@^5.3.3
-
-      - name: Build TypeScript
-        run: npx tsc
+      - name: Build with TypeScript (via npx)
+        run: npx -p typescript@^5.3.3 tsc
 
       - name: Copy icon to dist
         run: cp nodes/telegram.svg dist/nodes/telegram.svg
+
+      - name: Create dist index files
+        run: |
+          echo '"use strict";' > dist/index.js
+          echo 'Object.defineProperty(exports, "__esModule", { value: true });' >> dist/index.js
+          echo 'exports.nodeClasses = exports.credentialClasses = void 0;' >> dist/index.js
+          echo 'const Telegram_node_1 = require("./nodes/Telegram.node");' >> dist/index.js
+          echo 'const TelegramTrigger_node_1 = require("./nodes/TelegramTrigger.node");' >> dist/index.js
+          echo 'const TelegramApiProxy_credentials_1 = require("./credentials/TelegramApiProxy.credentials");' >> dist/index.js
+          echo 'exports.nodeClasses = [new Telegram_node_1.Telegram(), new TelegramTrigger_node_1.TelegramTrigger()];' >> dist/index.js
+          echo 'exports.credentialClasses = [new TelegramApiProxy_credentials_1.TelegramApiProxy()];' >> dist/index.js
 
       - name: Verify build
         run: ls -la dist/
