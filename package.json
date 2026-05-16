@@ -1,0 +1,85 @@
+{
+  "name": "@sajjadsaharkhan/n8n-nodes-telegram-proxy",
+  "version": "1.0.0",
+  "description": "Telegram nodes with HTTP proxy support for n8n. An enhanced version of the official Telegram node.",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "telegram",
+    "proxy",
+    "http-proxy",
+    "socks-proxy"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/yourusername/n8n-nodes-telegram-proxy#readme",
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/n8n-nodes-telegram-proxy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/n8n-nodes-telegram-proxy/issues"
+  },
+  "main": "index.js",
+  "n8n": {
+    "n8nVersionsCompat": ">=1.0.0",
+    "credentials": [
+      {
+        "name": "telegramApiProxy",
+        "displayName": "Telegram API (with Proxy)",
+        "types": ["telegramApi"],
+        "required": true
+      }
+    ],
+    "nodes": [
+      {
+        "name": "telegramProxy",
+        "displayName": "Telegram (with Proxy)",
+        "types": ["output"],
+        "maxNodes": 1,
+        "inputs": ["main"],
+        "outputs": ["main"],
+        "group": ["output"],
+        "version": 1.2,
+        "defaults": {
+          "name": "Telegram (with Proxy)"
+        }
+      },
+      {
+        "name": "telegramProxyTrigger",
+        "displayName": "Telegram Trigger (with Proxy)",
+        "types": ["trigger"],
+        "maxNodes": 1,
+        "inputs": [],
+        "outputs": ["main"],
+        "group": ["trigger"],
+        "version": 1.3,
+        "defaults": {
+          "name": "Telegram Trigger (with Proxy)"
+        }
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/mime-types": "^2.1.4",
+    "n8n-workflow": "*",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "mime-types": "^2.1.35"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist",
+    "credentials",
+    "nodes"
+  ]
+}
